@@ -1,0 +1,22 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:janghyeonwoo/cloud_config_repository.git
+          #ignore-local-ssh-settings ssh 통신시 .ssh 하위의 키를 사용하지 않고 지정한 privateKey를 사용
+          ignore-local-ssh-settings: true
+          default-label: master
+          # | 은 줄바꿈을 위해 필요!
+          private-key: |
+            -----BEGIN EC PRIVATE KEY-----
+            MHcCAQEEIAN3hvcjGstqon+mywlHY3AFvrMoT1ZmLt3q9M4e8hXAoAoGCCqGSM49
+            AwEHoUQDQgAEaY4lJiJlzXlgBfEUiNtgATonWEedWNX6Cb8rj0rpeL5vqD8HinI4
+            xFX3/93f6jg9YJLJsfHU5i5Vzkdn2f05lQ==
+            -----END EC PRIVATE KEY-----
+
